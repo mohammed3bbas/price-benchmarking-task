@@ -15,7 +15,6 @@ def parse_csv(file_contents: bytes) -> List[UserRateCSVSchema]:
     for row in reader:
         # Validate with Pydantic schema
         try:
-            print(row)
             validated_row = UserRateCSVSchema(
                 # user_email=row['user_email'],
                 origin=row['origin'],
@@ -25,7 +24,6 @@ def parse_csv(file_contents: bytes) -> List[UserRateCSVSchema]:
                 price=float(row['price']),
                 annual_volume=float(row['annual_volume'])
             )
-            print(validated_row)
             valid_data.append(validated_row)
         except ValueError as e:
             raise ValueError(f"Invalid data in row: {row}, error: {e}")
