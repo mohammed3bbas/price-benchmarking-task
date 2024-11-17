@@ -1,10 +1,10 @@
 import csv
 from io import StringIO
 from datetime import datetime
-from app.schemas.user_rate import UserRateCSV
+from app.schemas.user_rate import UserRateCSVSchema
 from typing import List
 
-def parse_csv(file_contents: bytes) -> List[UserRateCSV]:
+def parse_csv(file_contents: bytes) -> List[UserRateCSVSchema]:
     """
     Parse the CSV file contents and validate the data.
     """
@@ -16,7 +16,7 @@ def parse_csv(file_contents: bytes) -> List[UserRateCSV]:
         # Validate with Pydantic schema
         try:
             print(row)
-            validated_row = UserRateCSV(
+            validated_row = UserRateCSVSchema(
                 # user_email=row['user_email'],
                 origin=row['origin'],
                 destination=row['destination'],

@@ -1,5 +1,7 @@
 from sqlalchemy import Column, Integer, String, Date, Numeric
-from app.database_settings import Base 
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
 
 class UserRate(Base):
     __tablename__ = "users_rates"

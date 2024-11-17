@@ -2,7 +2,7 @@ from pydantic import BaseModel, EmailStr, Field, ValidationInfo, FieldValidation
 from typing import Optional
 from datetime import date
 
-class UserRateCSV(BaseModel):
+class UserRateCSVSchema(BaseModel):
     user_email: Optional[EmailStr] = None
     origin: str
     destination: str
